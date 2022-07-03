@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// Generate ChipTheme that supports outlined and raised chip
 class S2ChipTheme extends StatelessWidget {
   /// Default constructor
-  S2ChipTheme({
+  const S2ChipTheme({
     Key? key,
     required this.child,
     this.color,
@@ -93,7 +93,7 @@ class S2ChipTheme extends StatelessWidget {
                 : secondaryColor.withAlpha(foregroundAlpha));
 
     final ShapeBorder? chipShapeRaised =
-        raised == true ? StadiumBorder() : null;
+        raised == true ? const StadiumBorder() : null;
     final ShapeBorder? chipShapeOutlined = outlined == true
         ? StadiumBorder(
             side: BorderSide(
@@ -118,7 +118,7 @@ class S2ChipTheme extends StatelessWidget {
         shape: shape as OutlinedBorder? ??
             chipShapeRaised as OutlinedBorder? ??
             chipShapeOutlined as OutlinedBorder? ??
-            StadiumBorder(),
+            const StadiumBorder(),
         labelStyle: primaryLabelStyle,
         secondaryLabelStyle: selectedLabelStyle,
         elevation: raised == true ? elevation : 0,

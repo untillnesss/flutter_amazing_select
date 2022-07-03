@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_amazing_select/flutter_amazing_select.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,6 +62,28 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  List<S2Choice<String>> jenisBisnisOption = [
+    S2Choice(
+      value: 'restoran',
+      title: 'Restoran',
+    ),
+    S2Choice(
+      value: 'jasa',
+      title: 'Jasa',
+    ),
+  ];
+
+  void addList() {
+    jenisBisnisOption.add(
+      S2Choice(
+        value: 'jasa ${jenisBisnisOption.length + 1}',
+        title: 'Jasa ${jenisBisnisOption.length + 1}',
+      ),
+    );
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -102,13 +125,52 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SmartSelect<String?>.single(
+              title: 'Contoh',
+              selectedValue: '',
+              choiceItems: jenisBisnisOption,
+              modalConfig: const S2ModalConfig(),
+              // choiceBuilder: (context, state, choice) {
+              //   return ListTile(
+              //     minLeadingWidth: 0,
+              //     visualDensity: VisualDensity.compact,
+              //     // contentPadding: EdgeInsets.zero,
+              //     title: Text(
+              //       choice.title ?? '-',
+              //       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              //             color: Colors.black,
+              //           ),
+              //     ),
+              //     leading: Radio<String>(
+              //       // visualDensity: VisualDensity.compact,
+              //       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              //       value: choice.value ?? '-',
+              //       groupValue: 'sa',
+              //       onChanged: (_) {},
+              //     ),
+              //   );
+              // },
+              modalFilter: true,
+              onChange: (_) {},
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            heroTag: 'sas',
+            onPressed: addList,
+            tooltip: 'Increment',
+            child: const Icon(Icons.insert_chart),
+          ),
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

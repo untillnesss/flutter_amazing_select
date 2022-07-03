@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields, prefer_typing_uninitialized_variables
+
 import 'package:flutter/foundation.dart';
 import '../model/choice_item.dart';
 
@@ -62,6 +64,7 @@ abstract class S2Selection<T> extends ChangeNotifier {
   /// Returns a string that can be used as display,
   /// returns error message if is not valid,
   /// returns title if is valid and is not empty.
+  @override
   String toString();
 }
 
@@ -160,6 +163,7 @@ class S2MultiSelection<T> extends S2Selection<T> {
   final List<S2Choice<T>> initial;
 
   /// A function used to validate the selection
+  @override
   final S2Validation<List<S2Choice<T>>>? validation;
 
   /// Default constructor
@@ -184,7 +188,7 @@ class S2MultiSelection<T> extends S2Selection<T> {
   /// return an array of `value` of the current [choice] selection
   @override
   List<T> get value {
-    return choice.length > 0
+    return choice.isNotEmpty
         ? choice.map((S2Choice<T> item) => item.value).toList()
         : [];
   }
@@ -247,10 +251,11 @@ class S2MultiSelection<T> extends S2Selection<T> {
     } else if (pull == false) {
       merge(choices);
     } else {
-      if (hasAny(choices))
+      if (hasAny(choices)) {
         omit(choices);
-      else
+      } else {
         merge(choices);
+      }
     }
   }
 

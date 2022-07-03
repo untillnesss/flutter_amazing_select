@@ -1,7 +1,6 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:ui';
 
 /// Where to place the control in widgets that use [ListTile] to position a
 /// control next to a label.
@@ -16,7 +15,7 @@ enum S2ChoiceControl {
   leading,
 
   /// Position the control on the trailing edge, and the secondary widget, if
-  /// any, on the leading edge.
+  /// any, on the leading edge.i
   trailing,
 
   /// Position the control relative to the text in the fashion that is typical

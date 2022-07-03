@@ -52,7 +52,7 @@ class S2TextError extends StatefulWidget {
   final S2TextErrorController? controller;
 
   /// Default constructor
-  S2TextError({
+  const S2TextError({
     Key? key,
     this.child,
     this.visibled,
@@ -119,7 +119,7 @@ class _S2TextErrorState extends State<S2TextError> {
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
-      firstChild: Container(height: 0.0, width: 0.0),
+      firstChild: const SizedBox(height: 0.0, width: 0.0),
       secondChild: controller?.shaked == true ? shakedChild : widget.child!,
       duration: const Duration(milliseconds: 300),
       firstCurve: const Interval(0.0, 0.6, curve: Curves.fastOutSlowIn),
@@ -141,8 +141,8 @@ class _S2TextErrorState extends State<S2TextError> {
         controller!.shake(false);
       },
       builder: (context, animation, child) {
-        final Curve curve = Curves.elasticOut;
-        final double delta = 15;
+        const Curve curve = Curves.elasticOut;
+        const double delta = 15;
         final double pos = 2 * (0.5 - (0.5 - curve.transform(animation)).abs());
         return Transform.translate(
           offset: Offset(delta * pos, 0),

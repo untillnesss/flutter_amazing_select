@@ -3,7 +3,7 @@ import 'package:flutter_amazing_select/src/utils/accent.dart';
 import 'choice_theme.dart';
 
 /// Validation callback
-typedef String S2Validation<T>(T value);
+typedef S2Validation<T> = String Function(T value);
 
 /// Choice data configuration
 @immutable
@@ -161,4 +161,4 @@ class S2Choice<T> with Diagnosticable {
   }
 }
 
-typedef R _S2OptionProp<E, R>(int index, E item);
+typedef _S2OptionProp<E, R> = R Function(int index, E item);
