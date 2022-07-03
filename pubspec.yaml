@@ -1,7 +1,7 @@
 name: flutter_amazing_select
-description: A new Flutter package project.
+description: A new Flutter package project. for select option forked from flutter_awesome_select
 version: 0.0.1
-homepage:
+homepage: https://github.com/untillnesss/flutter_amazing_select
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
